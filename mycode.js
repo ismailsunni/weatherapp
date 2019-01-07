@@ -14,7 +14,13 @@ function generateList(stations){
     
     $.each(stations, function(index, station){
         console.log(station.name);
-        $('#stationList').append('<li><a href="#" id="toDetails">' + station.name + '<span id= "'+ index + '" class="ui-li-count">'+ Math.round(station.temperature) + '°</span></a></li>');
+        $('#stationList').append(
+            '<li><h2>' + station.name + '</h2>' + 
+            '<p>Province: ' + station.province + '</p>' +
+            '<p>Last updated: ' + station.date + '</p>' +
+            '<span id= "'+ index + '" class="ui-li-count">'+ 
+            Math.round(station.temperature) + '°</span></li>'
+            );
     })
     
     // Refresh the list (important)
@@ -47,36 +53,3 @@ $(document).on("click", "#refresh", function(){
     });
 
 });
-
-// // Event to navigate to details
-// $(document).on("pagebeforeshow", "#home", function(){
-//     $(document).on('click', '#toDetails', function(e){
-//         // Stop more events
-//         e.preventDefault();
-//         e.stopImmediatePropagation();
-//         console.log(e.target.children[0].id);
-//         console.log(stations[e.target.children[0].id])
-//         // Store the current item in the list
-//         currentStation = stations[e.target.children[0].id];
-//         // Change to the new page
-//         $.mobile.changePage('#details')
-//     });
-// });
-
-// // Event to populate UI of details
-// $(document).on("pagebeforeshow", "#details", function(e){
-//     // Stop more events
-//     e.preventDefault(); 
-
-//     $('#stationName').text(currentStation.name);
-//     console.log(currentStation.weather[0].description);
-//     $('#stationDescription').text(currentStation.weather[0].description);
-//     $('#stationTemperature').text(
-//         'Temperature: ' + currentStation.main.temp);
-//     $('#stationHumidity').text(
-//         'Humidity:' + 
-//         currentStation.main.humidity);
-//     $('#stationPressure').text(
-//         'Pressure: ' + 
-//         currentStation.main.pressure);
-// });
