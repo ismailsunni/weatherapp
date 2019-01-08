@@ -16,12 +16,17 @@
   <author href="https://ismailsunni.wordpress.com" email="imajimatika@gmail.com">
       Ismail Sunni
   </author>
-
-    <plugin name="cordova-plugin-statusbar">
-
-    <preference name="permissions" value="none">
+    
+    <plugin name="cordova-plugin-statusbar"  />
+    <plugin name="cordova-plugin-whitelist" spec="1" />
+    
+    <preference name="StatusBarStyle" value="lightcontent" />
+    
+    <!-- App requested permission -->
+    <preference name="permissions" value="none"/>
+    
     <allow-navigation href="*" />
     <allow-intent href="*" />
-    <!-- <access href="*" /> -->
-
+    <access origin="*" />
+    
 </widget>
